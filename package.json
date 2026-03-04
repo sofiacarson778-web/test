@@ -1,0 +1,9 @@
+{
+  "name": "website",
+  "private": true,
+  "dependencies": {
+    "pdf-parse": "^1.1.1",
+    "node-stream-zip": "1.15.0",
+    "entities": "^4.5.0"
+  }
+}
