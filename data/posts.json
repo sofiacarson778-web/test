@@ -1,0 +1,54 @@
+{
+  "posts": [
+    {
+      "title": "checking",
+      "slug": "checking",
+      "date": "2026-03-05T02:06:00.000+05:00",
+      "featuredImage": "/uploads/jeff-w.-resume-ats-scan-results-2.png",
+      "excerpt": "fddddddddd",
+      "category": "guide",
+      "categoryLabel": "Guide",
+      "pillar": false
+    },
+    {
+      "title": "checking",
+      "slug": "checking",
+      "date": "2026-03-05T02:03:00.000+05:00",
+      "featuredImage": "/logo.jpg",
+      "excerpt": "fasda",
+      "category": "update",
+      "categoryLabel": "Update",
+      "pillar": false
+    },
+    {
+      "title": "FM Resumes",
+      "slug": "fm-resumes",
+      "date": "2026-03-05T01:41:00.000+05:00",
+      "featuredImage": "/uploads/jeff-w.-resume-ats-scan-results-2.png",
+      "excerpt": "Akdskdsdedede",
+      "category": "guide",
+      "categoryLabel": "Guide",
+      "pillar": false
+    },
+    {
+      "title": "Resume",
+      "slug": "resume-1",
+      "date": "2026-03-04T07:35:00.000+05:00",
+      "featuredImage": "/logo.jpg",
+      "excerpt": "fadada",
+      "category": "update",
+      "categoryLabel": "Update",
+      "pillar": false
+    },
+    {
+      "title": "Resume",
+      "slug": "resume",
+      "date": "2026-03-04T07:35:00.000+05:00",
+      "featuredImage": "/logo.jpg",
+      "excerpt": "fadada",
+      "category": "update",
+      "categoryLabel": "Update",
+      "pillar": false
+    }
+  ]
+}

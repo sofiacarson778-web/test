@@ -1,6 +1,10 @@
 {
   "name": "website",
   "private": true,
+  "scripts": {
+    "build:posts": "node scripts/build-posts.js",
+    "build": "npm run build:posts"
+  },
   "dependencies": {
     "pdf-parse": "^1.1.1",
     "node-stream-zip": "1.15.0",
