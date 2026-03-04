@@ -28,7 +28,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Image", name: "image", widget: "image" }
       - { label: "Excerpt", name: "excerpt", widget: "text" }
       - { label: "PDF", name: "pdf", widget: "file", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
