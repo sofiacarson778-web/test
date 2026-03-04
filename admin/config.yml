@@ -1,53 +1,34 @@
 backend:
-  name: github
-  repo: your-github-username/your-repository
+  name: git-gateway
   branch: main
 
 site_url: https://fmresumes.online
 logo_url: /logo.jpg
-media_folder: public/uploads
-public_folder: /public/uploads
+media_folder: "public/uploads"
+public_folder: "/uploads"
 publish_mode: editorial_workflow
 
 collections:
-  - name: updates
-    label: Updates
-    folder: content/posts
+  - name: "updates"
+    label: "Updates"
+    folder: "content/posts/updates"
     create: true
-    extension: md
-    format: frontmatter
-    slug: '{{slug}}'
-    filter:
-      field: category
-      value: updates
+    slug: "{{slug}}"
     fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Slug, name: slug, widget: string, hint: "Used for URL path: /updates/slug" }
-      - { label: Publish Date, name: date, widget: datetime }
-      - { label: Featured Image, name: featured_image, widget: image }
-      - { label: Excerpt, name: excerpt, widget: text }
-      - { label: Content, name: body, widget: markdown }
-      - { label: Category, name: category, widget: hidden, default: updates }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
 
-  - name: guides
-    label: Guides
-    folder: content/posts
+  - name: "guides"
+    label: "Guides"
+    folder: "content/posts/guides"
     create: true
-    extension: md
-    format: frontmatter
-    slug: '{{slug}}'
-    filter:
-      field: category
-      value: guides
+    slug: "{{slug}}"
     fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Slug, name: slug, widget: string, hint: "Used for URL path: /guides/slug" }
-      - { label: Publish Date, name: date, widget: datetime }
-      - { label: Featured Image, name: featured_image, widget: image }
-      - { label: Excerpt, name: excerpt, widget: text }
-      - { label: Content, name: body, widget: markdown }
-      - { label: Optional PDF Upload, name: pdf, widget: file, required: false }
-      - { label: PDF Description, name: pdf_description, widget: text, required: false }
-      - { label: Category, name: category, widget: hidden, default: guides }
-      - { label: Pillar Guide, name: pillar, widget: boolean, default: false, required: false }
-      - { label: FAQ Section, name: faq, widget: list, required: false, field: { label: Question & Answer, name: qa, widget: string, hint: "Format: Q: question | A: answer" } }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "PDF", name: "pdf", widget: "file", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
