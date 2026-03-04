@@ -6,7 +6,7 @@ site_url: https://fmresumes.online
 logo_url: /logo.jpg
 media_folder: "public/uploads"
 public_folder: "/uploads"
-publish_mode: editorial_workflow
+publish_mode: simple
 
 collections:
   - name: "updates"

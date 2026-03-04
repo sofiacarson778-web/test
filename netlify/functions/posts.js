@@ -87,20 +87,53 @@ function normalizeCategory(category) {
     return 'update';
 }
 
-function getPostSummary(fileName) {
-    const filePath = path.join(POSTS_DIR, fileName);
+function inferCategory(frontmatterCategory, relativeFilePath) {
+    if (frontmatterCategory) {
+        return normalizeCategory(frontmatterCategory);
+    }
+
+    const normalizedPath = relativeFilePath.replace(/\\/g, '/');
+    if (normalizedPath.startsWith('guides/')) return 'guide';
+    if (normalizedPath.startsWith('updates/')) return 'update';
+    return 'update';
+}
+
+function collectMarkdownFiles(dir, parent = '') {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    const files = [];
+
+    entries.forEach((entry) => {
+        const relativePath = parent ? path.join(parent, entry.name) : entry.name;
+        const fullPath = path.join(dir, entry.name);
+
+        if (entry.isDirectory()) {
+            files.push(...collectMarkdownFiles(fullPath, relativePath));
+            return;
+        }
+
+        if (entry.isFile() && entry.name.endsWith('.md')) {
+            files.push(relativePath);
+        }
+    });
+
+    return files;
+}
+
+function getPostSummary(relativeFilePath) {
+    const filePath = path.join(POSTS_DIR, relativeFilePath);
     const source = fs.readFileSync(filePath, 'utf8');
     const parsed = parseFrontmatter(source);
     const frontmatter = parsed.data;
 
-    const category = normalizeCategory(frontmatter.category || 'update');
+    const category = inferCategory(frontmatter.category, relativeFilePath);
     const faqFromBody = parseFaqFromLines(parsed.content);
+    const fileName = path.basename(relativeFilePath);
 
     return {
         title: frontmatter.title || fileName,
         slug: frontmatter.slug || fileName.replace(/\.md$/, ''),
         date: frontmatter.date || new Date().toISOString(),
-        featuredImage: frontmatter.featured_image || '/logo.jpg',
+        featuredImage: frontmatter.featured_image || frontmatter.image || '/logo.jpg',
         excerpt: frontmatter.excerpt || '',
         category,
         categoryLabel: category === 'guide' ? 'Guide' : 'Update',
@@ -125,7 +158,7 @@ function getPostSummary(fileName) {
 
 exports.handler = async function(event) {
     try {
-        const files = fs.readdirSync(POSTS_DIR).filter((file) => file.endsWith('.md'));
+        const files = collectMarkdownFiles(POSTS_DIR);
         const posts = files.map(getPostSummary).sort((a, b) => new Date(b.date) - new Date(a.date));
 
         const query = event.queryStringParameters || {};
