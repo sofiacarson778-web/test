@@ -1,0 +1,53 @@
+backend:
+  name: github
+  repo: your-github-username/your-repository
+  branch: main
+
+site_url: https://fmresumes.online
+logo_url: /logo.jpg
+media_folder: public/uploads
+public_folder: /public/uploads
+publish_mode: editorial_workflow
+
+collections:
+  - name: updates
+    label: Updates
+    folder: content/posts
+    create: true
+    extension: md
+    format: frontmatter
+    slug: '{{slug}}'
+    filter:
+      field: category
+      value: updates
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string, hint: "Used for URL path: /updates/slug" }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Featured Image, name: featured_image, widget: image }
+      - { label: Excerpt, name: excerpt, widget: text }
+      - { label: Content, name: body, widget: markdown }
+      - { label: Category, name: category, widget: hidden, default: updates }
+
+  - name: guides
+    label: Guides
+    folder: content/posts
+    create: true
+    extension: md
+    format: frontmatter
+    slug: '{{slug}}'
+    filter:
+      field: category
+      value: guides
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string, hint: "Used for URL path: /guides/slug" }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Featured Image, name: featured_image, widget: image }
+      - { label: Excerpt, name: excerpt, widget: text }
+      - { label: Content, name: body, widget: markdown }
+      - { label: Optional PDF Upload, name: pdf, widget: file, required: false }
+      - { label: PDF Description, name: pdf_description, widget: text, required: false }
+      - { label: Category, name: category, widget: hidden, default: guides }
+      - { label: Pillar Guide, name: pillar, widget: boolean, default: false, required: false }
+      - { label: FAQ Section, name: faq, widget: list, required: false, field: { label: Question & Answer, name: qa, widget: string, hint: "Format: Q: question | A: answer" } }

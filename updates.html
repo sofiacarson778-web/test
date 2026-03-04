@@ -5,8 +5,12 @@
     <link rel="apple-touch-icon" href="/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Updates & Guides | FM Resumes</title>
-    <meta name="description" content="Read the latest FM Resumes updates and practical career guides.">
+    <title>Career Updates & Resume Guides | FM Resumes Content Hub</title>
+    <meta name="description" content="Explore FM Resumes updates and in-depth career guides about ATS-friendly resumes, LinkedIn optimization, interview prep, and job search strategy.">
+    <meta property="og:title" content="Career Updates & Resume Guides | FM Resumes">
+    <meta property="og:description" content="A career knowledge hub featuring FM Resumes updates and practical guides for job seekers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fmresumes.online/updates.html">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,64 +37,37 @@
         </div>
     </nav>
 
-    <header class="page-header">
+    <header class="page-header hub-header">
         <div class="container">
-            <h1>Updates & Guides</h1>
-            <p>Explore product updates and practical job-search guides from FM Resumes.</p>
+            <p class="hub-kicker">FM Resumes Content Hub</p>
+            <h1>Career Updates, Resume Guides & Job Search Insights</h1>
+            <p>Browse short product updates and in-depth guides designed to help job seekers build ATS-optimized resumes, improve LinkedIn profiles, and prepare for interviews.</p>
         </div>
     </header>
 
-    <section class="section">
-        <div class="container">
-            <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">1. Updates</h2>
-            <div class="card">
-                <div class="card-body">
-                    <h3 style="margin-bottom: 0.5rem;">Latest Website Updates</h3>
-                    <p style="color: var(--gray-600); margin-bottom: 1rem;">We share improvements to services, pricing pages, and tools so you always know what is new on FM Resumes.</p>
-                    <ul class="feature-list">
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            New resume package enhancements
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            ATS Scanner workflow improvements
-                        </li>
-                    </ul>
+    <main>
+        <section class="section section-tight" aria-labelledby="latest-content-heading">
+            <div class="container">
+                <div class="hub-controls">
+                    <h2 id="latest-content-heading">Latest Content</h2>
+                    <div class="hub-filters" role="tablist" aria-label="Filter posts by category">
+                        <button class="hub-filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                        <button class="hub-filter-btn" data-filter="update" aria-pressed="false">Updates</button>
+                        <button class="hub-filter-btn" data-filter="guide" aria-pressed="false">Guides</button>
+                    </div>
                 </div>
+                <div id="post-grid" class="post-grid" aria-live="polite"></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">2. Guides</h2>
-            <div class="card">
-                <div class="card-body">
-                    <h3 style="margin-bottom: 0.5rem;">Career Growth Guides</h3>
-                    <p style="color: var(--gray-600); margin-bottom: 1rem;">Actionable guides to help you write stronger resumes, optimize LinkedIn profiles, and prepare for interviews.</p>
-                    <ul class="feature-list">
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            Resume writing best practices by career level
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            Job application and interview strategy tips
-                        </li>
-                    </ul>
-                </div>
+        <section class="section section-tight" aria-labelledby="pillar-guides-heading">
+            <div class="container">
+                <h2 id="pillar-guides-heading">Pillar Resume & Career Guides</h2>
+                <p class="section-subtitle">Our long-form pillar content is structured to build topical authority around resume writing, ATS optimization, LinkedIn profile strategy, and interview preparation.</p>
+                <div id="pillar-grid" class="post-grid"></div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
@@ -131,5 +108,6 @@
     </footer>
 
     <script src="main.js"></script>
+    <script src="js/content-hub.js"></script>
 </body>
 </html>
