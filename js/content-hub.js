@@ -65,8 +65,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    fetch('/.netlify/functions/posts')
-        .then(function(response) { return response.json(); })
+    function loadPosts() {
+        return fetch('/data/posts.json')
+            .then(function(response) {
+                if (!response.ok) throw new Error('Missing static feed');
+                return response.json();
+            })
+            .catch(function() {
+                return fetch('/.netlify/functions/posts').then(function(response) {
+                    if (!response.ok) throw new Error('Posts function unavailable');
+                    return response.json();
+                });
+            });
+    }
+
+    loadPosts()
         .then(function(data) {
             posts = data.posts || [];
             renderCards('all');
