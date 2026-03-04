@@ -143,7 +143,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                 </section>
-            ` : '';
+            ` : (post.category === 'guide' ? `
+                <section class="pdf-resource" aria-labelledby="pdf-heading">
+                    <h2 id="pdf-heading">Downloadable Resume Resource</h2>
+                    <p>No PDF is available for this guide yet.</p>
+                </section>
+            ` : '');
 
             contentEl.innerHTML = `
                 <div class="container article-container">
