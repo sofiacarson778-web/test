@@ -41,7 +41,14 @@ function renderFaq(items) {
 }
 
 function renderPdf(post) {
-    if (!post.pdf) return '';
+    if (!post.pdf) {
+        return post.category === 'guide' ? `
+        <section class="pdf-resource" aria-labelledby="pdf-heading">
+            <h2 id="pdf-heading">Downloadable Resume Resource</h2>
+            <p>No PDF is available for this guide yet.</p>
+        </section>
+    ` : '';
+    }
     return `
         <section class="pdf-resource" aria-labelledby="pdf-heading">
             <h2 id="pdf-heading">Downloadable Resume Resource</h2>

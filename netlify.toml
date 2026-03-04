@@ -18,3 +18,9 @@
   from = "/guides/*"
   to = "/article.html"
   status = 200
+
+[[redirects]]
+  from = "/uploads/*"
+  to = "/public/uploads/:splat"
+  status = 200
+
